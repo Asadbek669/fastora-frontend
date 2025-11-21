@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://192.168.19.228:8000",  // Kompyuterning real IP manzili
+    baseURL: "https://fastora-backend.onrender.com",  // Kompyuterning real IP manzili
     timeout: 5000,
 });
 
