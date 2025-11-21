@@ -1,6 +1,6 @@
 
 
-const API_BASE = "http://192.168.19.228:8000"; 
+const API_BASE = "https://fastora-backend.onrender.com"; 
 
 export async function resolvePoster(movie) {
   // ❗ poster_url JSON API bo‘lsa — qaytarmaymiz
