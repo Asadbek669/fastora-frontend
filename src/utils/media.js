@@ -1,4 +1,4 @@
-const BOT_TOKEN = "7613788769:AAFkftMCMaOdJVkcHih0XJxGJVR5PaQijmk";
+
 
 const API_BASE = "http://192.168.19.228:8000"; 
 
