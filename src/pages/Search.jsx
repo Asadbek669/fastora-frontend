@@ -10,7 +10,7 @@ export default function Search() {
   const doSearch = () => {
     if (!query.trim()) return;
 
-    fetch(`http://192.168.19.228:8000/movies/search?q=${query}`)
+    fetch(`https://fastora-backend.onrender.com/movies/search?q=${query}`)
       .then((res) => res.json())
       .then((data) => setResults(data))
       .catch((err) => console.log(err));
