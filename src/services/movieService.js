@@ -1,4 +1,4 @@
-const API_URL = "http://192.168.19.228:8000";
+const API_URL = "https://fastora-backend.onrender.com";
 
 /*  
   =======================================
