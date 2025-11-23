@@ -1,25 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function Player({ movie }) {
-  const [videoUrl, setVideoUrl] = useState(null);
-
   useEffect(() => {
-    if (movie?.video_url) {
-      setVideoUrl(movie.video_url);
-    }
+    const script = document.createElement("script");
+    script.src = "/player/playerjs.min.js";
+    script.onload = () => {
+      new window.Playerjs({
+        id: "movie_player",
+        file: movie?.video_url,
+      });
+    };
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
   }, [movie]);
 
   return (
-    <div className="bg-black fixed inset-0 z-50 flex items-center justify-center">
-      {videoUrl ? (
-        <video
-          controls
-          src={videoUrl}
-          className="max-w-full max-h-screen object-contain"
-        />
-      ) : (
-        <p className="text-center text-white">Video yuklanmoqda...</p>
-      )}
+    <div className="bg-black w-full h-[350px]">
+      <div id="movie_player" className="w-full h-full"></div>
     </div>
   );
 }
