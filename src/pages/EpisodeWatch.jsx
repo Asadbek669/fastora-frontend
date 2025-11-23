@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import EpisodePlayer from "./EpisodePlayer";
 
 export default function EpisodeWatch() {
-  const { id } = useParams(); // episode ID
+  const { id } = useParams();
   const navigate = useNavigate();
-
   const [episode, setEpisode] = useState(null);
 
   useEffect(() => {
@@ -13,7 +13,6 @@ export default function EpisodeWatch() {
 
   function loadEpisode() {
     try {
-      // 1) First try fast index: episodes_index -> movieId
       const rawIndex = localStorage.getItem("episodes_index");
       if (rawIndex) {
         const index = JSON.parse(rawIndex);
@@ -32,58 +31,60 @@ export default function EpisodeWatch() {
         }
       }
 
-      // 2) Fallback: iterate all episodes_for_movie_* keys (if index missing)
+      // fallback search
       for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
-        if (key && key.startsWith("episodes_for_movie_")) {
+        if (key?.startsWith("episodes_for_movie_")) {
           const raw = localStorage.getItem(key);
           if (!raw) continue;
-          try {
-            const eps = JSON.parse(raw);
-            if (!Array.isArray(eps)) continue;
-            const found = eps.find((e) => String(e.id) === String(id));
-            if (found) {
-              setEpisode(found);
-              return;
-            }
-          } catch (e) {
-            // ignore malformed json
-            continue;
+          const eps = JSON.parse(raw);
+          const found = eps.find((e) => String(e.id) === String(id));
+          if (found) {
+            setEpisode(found);
+            return;
           }
         }
       }
 
-      // not found
       setEpisode(null);
-    } catch (e) {
-      console.warn("Episode lookup error:", e);
+    } catch {
       setEpisode(null);
     }
   }
 
   if (!episode)
-    return (
-      <div className="text-center text-gray-400 mt-10">
-        Qism topilmadi...
-      </div>
-    );
+    return <div className="text-center text-gray-400 mt-10">Qism topilmadi...</div>;
 
   return (
     <div className="bg-black text-white min-h-screen">
-      {/* Orqaga */}
+      
       <div className="p-3">
-        <button onClick={() => navigate(-1)} className="text-lg">
-          ⬅ Orqaga
+        <button
+          onClick={() => navigate(-1)}
+          className="flex items-center gap-2 text-lg hover:opacity-90 active:scale-95 transition-transform"
+          aria-label="Orqaga"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.8"
+            stroke="currentColor"
+            className="w-6 h-6"
+            style={{ color: 'white' }}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15.75 19.5L8.25 12l7.5-7.5"
+            />
+          </svg>
+          <span>Orqaga</span>
         </button>
       </div>
 
-      {/* VIDEO */}
-      <video
-        src={episode.video_url}
-        controls
-        autoPlay
-        className="w-full max-h-[350px] bg-black"
-      />
+      {/* VIDEO PLAYERJS */}
+      <EpisodePlayer episode={episode} />
 
       <div className="p-4">
         <h1 className="text-xl font-bold">
