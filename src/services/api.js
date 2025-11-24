@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://204.216.108.22:8000/movie",  // Kompyuterning real IP manzili
+    baseURL: "https://necessary-agna-akbarovasadbek777-c512a1db.koyeb.app/movie",  // Kompyuterning real IP manzili
     timeout: 5000,
 });
 
