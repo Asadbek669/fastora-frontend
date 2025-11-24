@@ -10,7 +10,7 @@ export default function Search() {
   const doSearch = () => {
     if (!query.trim()) return;
 
-    fetch(`http://204.216.108.22:8000/movies/search?q=${query}`)
+    fetch(`https://necessary-agna-akbarovasadbek777-c512a1db.koyeb.app/movies/search?q=${query}`)
       .then((res) => res.json())
       .then((data) => setResults(data))
       .catch((err) => console.log(err));
