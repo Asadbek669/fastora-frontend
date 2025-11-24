@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Asosiy sahifa -->
+  <url>
+    <loc>https://fastora-frontend.vercel.app/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Kategoriyalar -->
+  <url>
+    <loc>https://fastora-frontend.vercel.app/movies</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://fastora-frontend.vercel.app/series</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://fastora-frontend.vercel.app/cartoons</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Qidiruv sahifasi -->
+  <url>
+    <loc>https://fastora-frontend.vercel.app/search</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Qadrli X – 1 dan 10 gacha epizodlari -->
+  <url>
+    <loc>https://fastora-frontend.vercel.app/episode/1</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>httpsora-frontend.vercel.app/episode/2</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://fastora-frontend.vercel.app/episode/3</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://fastora-frontend.vercel.app/episode/4</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://fastora-frontend.vercel.app/episode/5</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://fastora-frontend.vercel.app/episode/6</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://fastora-frontend.vercel.app/episode/7</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://fastora-frontend.vercel.app/episode/8</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://fastora-frontend.vercel.app/episode/9</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://fastora-frontend.vercel.app/episode/10</loc>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>
