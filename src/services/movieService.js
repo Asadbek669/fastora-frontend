@@ -1,4 +1,4 @@
-const API_URL = "http://204.216.108.22:8000";
+const API_URL = "https://necessary-agna-akbarovasadbek777-c512a1db.koyeb.app";
 
 /*  
   =======================================
