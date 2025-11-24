@@ -86,9 +86,9 @@ export default function EpisodeWatch() {
       {/* VIDEO PLAYERJS */}
       <EpisodePlayer episode={episode} />
 
-      <div className="p-4">
-        <h1 className="text-xl font-bold">
-          {episode.episode_number}-qism — {episode.title}
+      <div className="px-4 py-2">
+        <h1 className="text-xl font-bold text-white leading-tight">
+          {episode.episode_number}- qism
         </h1>
       </div>
     </div>
