@@ -14,6 +14,7 @@ import Search from "./pages/Search";
 import MoviesPage from "./pages/MoviesPage";
 import SeriesPage from "./pages/SeriesPage";
 import CartoonsPage from "./pages/CartoonsPage";
+import AdminComments from "./pages/AdminComments";
 
 // 🔥 Serial qism ko‘rish sahifasi
 import EpisodeWatch from "./pages/EpisodeWatch";
@@ -48,6 +49,7 @@ export default function App() {
           <Route path="/movies" element={<MoviesPage />} />
           <Route path="/series" element={<SeriesPage />} />
           <Route path="/cartoons" element={<CartoonsPage />} />
+		  <Route path="/admin/comments" element={<AdminComments />} />
         </Routes>
 
         <BottomNav />
