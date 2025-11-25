@@ -150,3 +150,44 @@ export async function searchMoviesCached(q) {
 
   return data;
 }
+const ADMIN_TOKEN = import.meta.env.VITE_ADMIN_TOKEN || "CvJcsHNas8iI";
+
+// =====================
+//  ADMIN COMMENTS API
+// =====================
+
+export async function adminGetAllComments() {
+  const res = await fetch(`${API_URL}/comments/admin/all`, {
+    headers: {
+      "X-Admin-Token": ADMIN_TOKEN,
+    },
+  });
+
+  if (!res.ok) throw new Error("Admin API xatolik!");
+  return await res.json();
+}
+
+export async function adminDeleteComment(id) {
+  const res = await fetch(`${API_URL}/comments/admin/${id}`, {
+    method: "DELETE",
+    headers: {
+      "X-Admin-Token": ADMIN_TOKEN,
+    },
+  });
+
+  if (!res.ok) throw new Error("Admin API xatolik!");
+}
+
+export async function adminReplyComment(id, reply) {
+  const res = await fetch(`${API_URL}/comments/admin/${id}/reply`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Admin-Token": ADMIN_TOKEN,
+    },
+    body: JSON.stringify({ reply }),
+  });
+
+  if (!res.ok) throw new Error("Admin API xatolik!");
+  return await res.json();
+}
